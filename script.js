@@ -35,7 +35,8 @@ window.addEventListener("load", () => {
     
     function editTask (btnEdit){
       const li = btnEdit.target.parentNode.parentNode
-      let edit= li.childNodes[3]
+      const edit = li.childNodes[3]
+      const inputText = li.childNodes[2]
       
       //cambio de apariencia del boton edit
       const btnEditUpdate = li.querySelector(".task__item-edit")
@@ -43,11 +44,13 @@ window.addEventListener("load", () => {
       if(btnEditUpdate.textContent=="edit"){
         btnEditUpdate.textContent =`done`
         edit.removeAttribute("readonly")
+        edit.classList.add(`update`)
       }
       // else if (btnEditUpdate.textContent=="done"){
         else{
         btnEditUpdate.textContent =`edit`
         edit.setAttribute("readonly","readonly") 
+        edit.classList.remove(`update`)
       }
     }
     // evento de agregar una tarea

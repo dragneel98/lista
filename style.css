@@ -2,6 +2,7 @@
 :root{
   --text-color: grey;
   --background-color: rgba(255, 218, 121,1.0);
+  --background-color-edit: rgb(252, 202, 75);
   --delete-color: crimson;
   --check-color: green;
 }
@@ -89,7 +90,7 @@ body{
 }
 /* edit mode */
 .update{
-  content: "done";
+  background-color:var(--background-color-edit);
 }
 @media(hover:hover){
   .material-symbols-outlined:hover{
