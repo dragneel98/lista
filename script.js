@@ -37,7 +37,6 @@ window.addEventListener("load", () => {
       const li = btnEdit.target.parentNode.parentNode
       let edit= li.childNodes[3]
       
-      
       //cambio de apariencia del boton edit
       const btnEditUpdate = li.querySelector(".task__item-edit")
       
@@ -45,7 +44,8 @@ window.addEventListener("load", () => {
         btnEditUpdate.textContent =`done`
         edit.removeAttribute("readonly")
       }
-      else if (btnEditUpdate.textContent=="done"){
+      // else if (btnEditUpdate.textContent=="done"){
+        else{
         btnEditUpdate.textContent =`edit`
         edit.setAttribute("readonly","readonly") 
       }
