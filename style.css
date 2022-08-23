@@ -67,6 +67,7 @@ body{
   margin-right: 10px;
   list-style: none;
   justify-content: space-between;
+  
 }
 .task__item-text{
   background-color: var(--background-color);
@@ -89,8 +90,11 @@ body{
   text-align: center;
 }
 /* edit mode */
-.update{
+.update-edit-btn{
   background-color:var(--background-color-edit);
+}
+.task-complete{
+  text-decoration: line-through;
 }
 @media(hover:hover){
   .material-symbols-outlined:hover{

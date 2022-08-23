@@ -1,30 +1,29 @@
 window.addEventListener("load", () => {
 
-
     const form = document.getElementById("form")
     const taskList = document.getElementById("js-task-list")
     const submit = document.getElementById("form-submit")
     const input = document.getElementById("form-input")
-    
-    
+     
     function printTask (container, task){
+      console.log(task);
+      if(task.length>=1){
       container.innerHTML += `
       <li class="task__item">
-              <input type="checkbox">
-              <input type="text" readonly value=${task} class="task__item-text">
-              <div class="editores">
+              <span>
+              <input type="checkbox" id=checkbox>
+              <input type="text" readonly value= ${task} class="task__item-text">
+              </span>
+              <div class="editores">              
                 <span class="material-symbols-outlined task__item-edit">edit</span>
                 <span class="material-symbols-outlined task__item-delete">delete</span>
               </div>
             </li>
         `
-      // <li class="task__item" >
-        //   <span class="task__item-text"> <input type="checkbox"> ${task} </span>
-        //   <div class="editores">
-        //     <span class="material-symbols-outlined task__item-edit">edit</span>
-        //     <span class="material-symbols-outlined task__item-delete">delete</span>
-        //   </div>
-        // </li>
+      }
+      else{
+        alert("ingrese una tarea")
+      }
     }
     
     function deleteTask (btnDelete){
@@ -35,25 +34,30 @@ window.addEventListener("load", () => {
     
     function editTask (btnEdit){
       const li = btnEdit.target.parentNode.parentNode
-      const edit = li.childNodes[3]
-      const inputText = li.childNodes[2]
-      
-      //cambio de apariencia del boton edit
+      const task = li.querySelector(".task__item-text")
       const btnEditUpdate = li.querySelector(".task__item-edit")
       
       if(btnEditUpdate.textContent=="edit"){
         btnEditUpdate.textContent =`done`
-        edit.removeAttribute("readonly")
-        edit.classList.add(`update`)
+        task.removeAttribute("readonly")
+        task.classList.add(`update-edit-btn`)
       }
-      // else if (btnEditUpdate.textContent=="done"){
-        else{
+      else{
         btnEditUpdate.textContent =`edit`
-        edit.setAttribute("readonly","readonly") 
-        edit.classList.remove(`update`)
+        task.setAttribute("readonly","readonly") 
+        task.classList.remove(`update-edit-btn`)
       }
     }
-    // evento de agregar una tarea
+
+    function CompleteTask(checkbox){
+      const taskContainer = checkbox.target.parentNode
+      const inputCheckbox = taskContainer.querySelector("#checkbox")
+      inputCheckbox.setAttribute("checked", true)
+      const task = taskContainer.querySelector(".task__item-text")
+      task.classList.toggle("task-complete")
+    }
+
+    // evento del form para agregar una tarea
     form.addEventListener("submit", (e)=>{
       e.preventDefault()
       const data = new FormData(form)
@@ -70,6 +74,9 @@ window.addEventListener("load", () => {
       }
       if(e.target.className==="material-symbols-outlined task__item-edit"){
         editTask(e)
+      }
+      if(e.target.type==="checkbox"){
+        CompleteTask(e)
       }
     })
     
