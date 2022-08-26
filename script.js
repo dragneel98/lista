@@ -4,22 +4,42 @@ window.addEventListener("load", () => {
     const taskList = document.getElementById("js-task-list")
     const submit = document.getElementById("form-submit")
     const input = document.getElementById("form-input")
-     
-    function printTask (container, task){
-      console.log(task);
+    //  ``control y } 2 veces
+    
+    function printTask (container,task){
       if(task.length>=1){
-      container.innerHTML += `
-      <li class="task__item">
-              <span>
-              <input type="checkbox" id=checkbox>
-              <input type="text" readonly value= ${task} class="task__item-text">
-              </span>
-              <div class="editores">              
-                <span class="material-symbols-outlined task__item-edit">edit</span>
-                <span class="material-symbols-outlined task__item-delete">delete</span>
-              </div>
-            </li>
-        `
+      const list = document.createElement("li")
+      list.classList.add("task__item")
+      const spanContainer = document.createElement("span")
+     
+      const check = document.createElement("input")
+      check.type = "checkbox"
+      check.id = "checkbox"
+      const spanInput = document.createElement("input")
+      spanInput.classList.add("task__item-text")
+      spanInput.value=task
+      spanInput.setAttribute("readonly","readonly")
+
+
+      const editores = document.createElement("div")
+      editores.classList.add("editores")
+      
+      const editIcon = document.createElement("span")
+      editIcon.classList.add("material-symbols-outlined","task__item-edit")
+      editIcon.textContent="edit"
+      
+      const deleteIcon = document.createElement("span")
+      deleteIcon.classList.add("material-symbols-outlined","task__item-delete")
+      deleteIcon.textContent = "delete"
+
+      container.appendChild(list)
+      list.appendChild(spanContainer)
+      spanContainer.appendChild(check)
+      spanContainer.appendChild(spanInput)
+      list.appendChild(editores)
+      editores.appendChild(editIcon)
+      editores.appendChild(deleteIcon)
+      
       }
       else{
         alert("ingrese una tarea")
