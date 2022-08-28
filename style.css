@@ -55,6 +55,12 @@ body{
   padding: 0.5em;
   background-color: var(--background-color);
 }
+.form__time{
+  grid-area: izquierda;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  background-color: var(--background-color);
+}
 .form__submit{
   grid-area: derecha;
   display: flex;
