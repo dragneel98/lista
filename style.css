@@ -74,27 +74,31 @@ body{
 
 .task-container{
   border: solid 1px var(--text-color);
-  border-radius: 20px;
   background-color: var(--background-color);
-  min-height: 40em;
-  min-width: 20em;
+  height: 100%;
+  width: 100%;
 }
 .task__titulo{
   margin: 10px;
+}
+.task-right{
+  display: flex;
+}
+.task-list{
+  padding-left: 0.4em;
+  padding-right: 0.4em;
 }
 .task__item{
   display: flex;
   border-bottom: solid 1px var(--text-color);
   margin-right: 10px;
   list-style: none;
-  justify-content: space-between;
-  
+  justify-content:space-between;
 }
 .task__item-text{
   background-color: var(--background-color);
   border: none;
 }
-
 .task__item-delete{
   color: var(--delete-color);
 }
@@ -110,7 +114,14 @@ body{
 .task-menssage__text{
   text-align: center;
 }
-
+.date-time{
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+.editores{
+  display: flex;
+  flex-direction: column;
+}
 /* edit mode */
 .update-edit-btn{
   background-color:var(--background-color-edit);
@@ -122,6 +133,16 @@ body{
   .material-symbols-outlined:hover{
     box-shadow:1em;
   }
+}
+@media (min-width:720px){
+  .task-container{
+    border: solid 1px var(--text-color);
+    background-color: var(--background-color);
+    /* height: 90%; */
+    width: 70%;
+    border-radius: 20px;
+  }
+  
 }
 
 

@@ -23,6 +23,11 @@ window.addEventListener("load", () => {
     inputDate.setAttribute("min",currentDate)
     const inputTime = document.getElementById("time-input")
     inputTime.setAttribute("min",currentTime)
+    //cuenta regresiva
+    const dateS = date.getTime()
+    const dateTaskS = 
+
+    console.log(typeof currentTime);
 
     function printTask (container,task){
       
@@ -58,7 +63,9 @@ window.addEventListener("load", () => {
         
         const dateContainer = document.createElement("div")
         const taskTime = document.createElement("p")
+        taskTime.classList.add("date-time")
         const taskDate = document.createElement("p")
+        taskDate.classList.add("date-time")
         taskDate.textContent = inputDateValue
         taskTime.textContent = inputTimeValue
         //estructura de la tarea
@@ -72,6 +79,7 @@ window.addEventListener("load", () => {
         list.appendChild(dateContainer)
         dateContainer.appendChild(taskDate)
         dateContainer.appendChild(taskTime)
+        
      
       }
       else{
