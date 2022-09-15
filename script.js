@@ -18,17 +18,37 @@ window.addEventListener("load", () => {
     if (monthDay.length==1){ monthDay= 0+monthDay}
     const currentDate =(`${year}-${month}-${monthDay}`)
     const currentTime =(`${hours}:${minutes}`)
-    console.log(currentTime);
     const inputDate = document.getElementById("date-input")
     inputDate.setAttribute("min",currentDate)
     const inputTime = document.getElementById("time-input")
     inputTime.setAttribute("min",currentTime)
+    
     //cuenta regresiva
-    const dateS = date.getTime()
-    const dateTaskS = 
+    function CountDown (taskDate,taskTime){
 
-    console.log(typeof currentTime);
-
+      const inputDateHour = new Date (`${inputDate.value} ${inputTime.value}`)
+      const inputDateHourS = inputDateHour.getTime()
+      let interval = setInterval(function(){
+        const date = new Date()
+        const dateS = date.getTime()
+        //obtencion de la difrencia
+        const difrencia= inputDateHourS-dateS
+        //difrencia pasada de milisegundos/segundos/minutos/horas/dias
+        let dayS = parseInt(difrencia / (1000*60*60*24))
+        let hour = parseInt(difrencia % (1000*60*60*24) / (1000*60*60))
+        let minute = parseInt(difrencia % (1000*60*60) / (1000*60))
+        let second = parseInt(difrencia % (1000*60) / (1000))
+        var days = `${dayS}`
+        var time = `${hour}:${minute}:${second}`
+        taskDate.textContent = days
+        taskTime.textContent = time
+        //finalizar la cuenta regresiva al llegar a 0
+        if (difrencia<0) {
+            clearInterval(interval)
+        }
+      },1000)
+    }
+    
     function printTask (container,task){
       
       if(task.length>=1){
@@ -56,19 +76,16 @@ window.addEventListener("load", () => {
         deleteIcon.classList.add("material-symbols-outlined","task__item-delete")
         deleteIcon.textContent = "delete"
         //contenedor de fecha
-        const inputDateValue = document.getElementById("date-input").value
-        const inputTimeValue = document.getElementById("time-input").value
-        console.log(inputDateValue)
-        console.log(inputTimeValue)
-        
-        const dateContainer = document.createElement("div")
-        const taskTime = document.createElement("p")
-        taskTime.classList.add("date-time")
-        const taskDate = document.createElement("p")
-        taskDate.classList.add("date-time")
-        taskDate.textContent = inputDateValue
-        taskTime.textContent = inputTimeValue
-        //estructura de la tarea
+       const dateContainer = document.createElement("div")
+       const taskTime = document.createElement("p")
+       taskTime.classList.add("date-time")
+       const taskDate = document.createElement("p")
+       taskDate.classList.add("date-time")
+       CountDown(taskDate,taskTime)
+       
+       
+      //  console.log(days);
+        // estructura de la tarea
         container.appendChild(list)
         list.appendChild(spanContainer)
         spanContainer.appendChild(check)
@@ -79,8 +96,6 @@ window.addEventListener("load", () => {
         list.appendChild(dateContainer)
         dateContainer.appendChild(taskDate)
         dateContainer.appendChild(taskTime)
-        
-     
       }
       else{
         alert("ingrese una tarea")

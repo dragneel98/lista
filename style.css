@@ -142,6 +142,10 @@ body{
     width: 70%;
     border-radius: 20px;
   }
+  .editores{
+    display: flex;
+    flex-direction: row;
+  }
   
 }
 
