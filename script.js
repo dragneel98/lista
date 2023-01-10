@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
         var days = `${dayS}`
         var time = `${hour}:${minute}:${second}`
         //validacion de la fecha ingresada
-         if(taskDate=NaM && taskTime=NaM ) {
+         if(taskDate>=1 && taskTime>=1 ) {
            alert("ingrse una fecha")  }
           else{ 
            taskDate.textContent = days
