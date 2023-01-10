@@ -44,13 +44,14 @@ window.addEventListener("load", () => {
         //finalizar la cuenta regresiva al llegar a 0
         if (difrencia<0) {
             clearInterval(interval)
+            alert("tiempo agotado")
         }
       },1000)
     }
     
     function printTask (container,task){
       //validacion de la tarea
-      if(task.length>=1 && taskDate!=null ){
+      if(task.length>=1 && taskDate!=NaM ){
         const list = document.createElement("li")
         list.classList.add("task__item")
         const spanContainer = document.createElement("span")
