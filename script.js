@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
     const form = document.getElementById("form")
     const taskList = document.getElementById("js-task-list")
     const input = document.getElementById("form-input")
+    alert ("si")
     
     let date = new Date()
     
