@@ -3,7 +3,6 @@ window.addEventListener("load", () => {
     const form = document.getElementById("form")
     const taskList = document.getElementById("js-task-list")
     const input = document.getElementById("form-input")
-    //  ``control y } 2 veces
     
     let date = new Date()
     
@@ -50,8 +49,8 @@ window.addEventListener("load", () => {
     }
     
     function printTask (container,task){
-      
-      if(task.length>=1){
+      //validacion de la tarea
+      if(task.length>=1 && taskDate!=null ){
         const list = document.createElement("li")
         list.classList.add("task__item")
         const spanContainer = document.createElement("span")
