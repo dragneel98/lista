@@ -39,8 +39,12 @@ window.addEventListener("load", () => {
         let second = parseInt(difrencia % (1000*60) / (1000))
         var days = `${dayS}`
         var time = `${hour}:${minute}:${second}`
+        //validacion de la fecha ingresada
+        if(taskDate!=NaM && taskTime!=NaM ) {
         taskDate.textContent = days
         taskTime.textContent = time
+        }
+        else{ alert("ingrese la fecha y hora")}
         //finalizar la cuenta regresiva al llegar a 0
         if (difrencia<0) {
             clearInterval(interval)
@@ -51,7 +55,7 @@ window.addEventListener("load", () => {
     
     function printTask (container,task){
       //validacion de la tarea
-      if(task.length>=1 && taskDate!=NaM ){
+      if(task.length>=1){
         const list = document.createElement("li")
         list.classList.add("task__item")
         const spanContainer = document.createElement("span")
