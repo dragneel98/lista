@@ -40,11 +40,13 @@ window.addEventListener("load", () => {
         var days = `${dayS}`
         var time = `${hour}:${minute}:${second}`
         //validacion de la fecha ingresada
-        if(taskDate!=NaM && taskTime!=NaM ) {
+//         if(taskDate!=NaM && taskTime!=NaM ) {
+//         taskDate.textContent = days
+//         taskTime.textContent = time
+//         }
+//         else { alert("ingrese la fecha y hora")}
         taskDate.textContent = days
         taskTime.textContent = time
-        }
-        else{ alert("ingrese la fecha y hora")}
         //finalizar la cuenta regresiva al llegar a 0
         if (difrencia<0) {
             clearInterval(interval)
